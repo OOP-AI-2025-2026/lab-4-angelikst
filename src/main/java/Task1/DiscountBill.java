@@ -1,4 +1,4 @@
-package ua.opnu.bill;
+package Task1;
 
 import Task1.Employee;
 import Task1.GroceryBill;

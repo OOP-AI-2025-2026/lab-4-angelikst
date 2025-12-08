@@ -1,4 +1,4 @@
-package ua.opnu.bill;
+package Task1;
 
 import Task1.Employee;
 import Task1.GroceryBill;
@@ -10,6 +10,7 @@ public class DiscountBill2 {
 
     private boolean RegularCustomer;
     private ArrayList<Item> productList = getItems();
+
 
     public DiscountBill(Employee clerk, boolean regularCustomer) {
         super(clerk);
