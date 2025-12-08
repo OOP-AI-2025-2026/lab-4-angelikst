@@ -1,54 +1,64 @@
-package Task1;
-import java.math.BigDecimal;
+package ua.opnu.bill;
+
+import Task1.Employee;
+import Task1.GroceryBill;
+import Task1.Item;
+
 import java.util.ArrayList;
+
 public class DiscountBill2 {
-    private boolean regularCustomer;
-    private int discountCount;
-    private double discountAmount;
 
-    public void DiscountBill(Employee clerk, boolean regularCustomer) {
+    private boolean RegularCustomer;
+    private ArrayList<Item> productList = getItems();
+
+    public DiscountBill(Employee clerk, boolean regularCustomer) {
         super(clerk);
-        this.regularCustomer = regularCustomer;
-        this.discountCount = 0;
-        this.discountAmount = 0.0;
+        this.RegularCustomer = regularCustomer;
     }
-
-    public void add(Item i) {
-        super.add(i);
-
-        if (regularCustomer && i.getDiscount() > 0) {
-            discountCount++;
-            discountAmount += i.getDiscount();
-        }
-    }
-
 
     public double getTotal() {
-        double total = super.getTotal();
-
-        if (!regularCustomer) {
-            return total;
+        if (!RegularCustomer) {
+            return super.getTotal();
         }
 
-        return Math.round((total - discountAmount) * 100.0) / 100.0;
+        double totalAfterDiscount = super.getTotal() - getDiscountAmount();
+        return Math.round(totalAfterDiscount * 100) / 100.0;
     }
 
     public int getDiscountCount() {
-        return regularCustomer ? discountCount : 0;
+        int counter = 0;
+
+        for (Item item : productList) {
+            if (RegularCustomer && item.getDiscount() > 0) {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
     public double getDiscountAmount() {
-        return regularCustomer ? discountAmount : 0.0;
+        if (!RegularCustomer) {
+            return 0.0;
+        }
+        double discountSum = 0.0;
+
+        for (Item item : productList) {
+            discountSum += item.getDiscount();
+        }
+        return Math.round(discountSum * 100) / 100.0;
     }
 
     public double getDiscountPercent() {
-        if (!regularCustomer) return 0.0;
-
         double full = super.getTotal();
-        double withDiscount = getTotal();
+        double reduced = getTotal();
 
-        if (full == 0) return 0.0;
+        if (full == 0) {
+            return 0.0;
+        }
 
-        return 100 - (withDiscount * 100) / full;
+        double percent = 100 - ((reduced * 100) / full);
+
+        return Math.round(percent * 100) / 100.0;
     }
 }
