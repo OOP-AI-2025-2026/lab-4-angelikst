@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class DiscountBill extends GroceryBill {
 
     private boolean regularCustomer;
-    private ArrayList<Item> items ;
 
     public DiscountBill(Employee clerk, boolean isRegular) {
         super(clerk);
@@ -23,14 +22,14 @@ public class DiscountBill extends GroceryBill {
 
     public int getDiscountCount() {
         int discountCounter = 0;
-        for (Item it : items)
+        for (Item it : getItems())
             if (it.getDiscount() > 0 && regularCustomer) discountCounter++;
         return discountCounter;
     }
 
     public double getDiscountAmount() {
         double discountSum = 0;
-        for (Item it : items)
+        for (Item it : getItems())
             if (it.getDiscount() > 0 && regularCustomer) discountSum += it.getDiscount();
         return discountSum;
     }
