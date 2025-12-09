@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import ua.opnu.point.Point3D;
+import ua.opnu.task_3.Point3D;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

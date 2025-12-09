@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import ua.opnu.java.inheritance.bill.Employee;
-import ua.opnu.java.inheritance.bill.Item;
-
+import ua.opnu.task_1.DiscountBill;
+import ua.opnu.task_1.Employee;
+import ua.opnu.task_1.Item;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task1Test {
