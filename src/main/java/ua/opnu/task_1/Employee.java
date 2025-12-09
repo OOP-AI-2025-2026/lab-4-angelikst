@@ -1,5 +1,4 @@
-package Task1;
-
+package ua.opnu.task_1;
 public class Employee {
     private String name;
 

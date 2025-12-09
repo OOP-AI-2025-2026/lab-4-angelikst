@@ -1,4 +1,4 @@
-package Task1;
+package ua.opnu.task_1;
 import java.util.ArrayList;
 
 
@@ -32,4 +32,3 @@ public class GroceryBill {
         return items;
     }
 }
-
