@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import ua.opnu.task_1.DiscountBill2;
 import ua.opnu.task_1.Employee;
 import ua.opnu.task_1.Item;
 
@@ -13,8 +14,8 @@ public class Task4Test {
         @org.junit.jupiter.api.Test
         @DisplayName("Test clerk for constructor 1")
         void test1() {
-            DiscountBill2 bill = new DiscountBill2(new Employee("clerk-1"), true);
             String expected = "clerk-1";
+            DiscountBill2 bill = new DiscountBill2(new Employee("clerk-1"), true);
             assertEquals(expected, bill.getClerk().getName());
         }
 
